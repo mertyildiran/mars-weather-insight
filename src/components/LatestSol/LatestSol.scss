@@ -1,0 +1,119 @@
+@import "../../styles/_variables.scss";
+
+.sol {
+  text-align: center;
+  color: $light;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  border-radius: 10px;
+
+  .summary {
+
+    .row {
+
+      .column:last-child {
+        padding-left: 10%;
+        text-align: left;
+      }
+    }
+  }
+
+  .measurement-select {
+    display: flex;
+    position: absolute;
+    right: 15px;
+
+    span {
+      display: inline-flex;
+      padding: 0 5px;
+      font-size: 20px;
+    }
+  }
+
+  .selected {
+    font-weight: 400;
+  }
+
+  .widget-footer {
+
+    .row {
+
+      .column {
+
+        div.checkbox-label {
+          display: inline-block;
+          margin: 0 7px;
+          min-height: 1.25rem;
+          vertical-align: super;
+        }
+        
+        .ui.slider.checkbox input:checked~.box:after,
+        .ui.slider.checkbox input:checked~label:after {
+          left: 2.6rem;
+        }
+
+        .ui.slider.checkbox .box:after,
+        .ui.slider.checkbox label:after {
+          width: 1rem;
+          height: 1rem;
+          top: 0;
+        }
+
+        .ui.slider.checkbox input:checked~.box:before,
+        .ui.slider.checkbox input:checked~label:before,
+        .ui.slider.checkbox input:focus:checked~.box:before,
+        .ui.slider.checkbox input:focus:checked~label:before,
+        .ui.slider.checkbox .box:before,
+        .ui.slider.checkbox label:before {
+          background-color: #76559c !important;
+        }
+
+      }
+    }
+  }
+
+  .small {
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 0.03em;
+  }
+
+  .row {
+    font-family: 'Roboto Mono', monospace;
+
+    .icon {
+      text-align: center;
+  
+      svg {
+        max-width: 40px;
+        margin-bottom: 10px;
+        fill: $light;
+      }
+    }
+
+    p {
+      margin-bottom: 5px;
+      font-weight: 100;
+
+      .label {
+        font-weight: 400;
+      }
+
+      .clickable {
+        cursor: pointer;
+      }
+    }
+  }
+
+  h1 {
+    font-weight: 400;
+    margin: 0;
+    font-size: 3em;
+  }
+
+  h3 {
+    font-weight: 300;
+    margin: 0;
+    font-size: 1.5em;
+  }
+}

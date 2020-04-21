@@ -1,0 +1,165 @@
+@import "../../styles/_variables.scss";
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.app {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+
+  .scroll-prompt {
+    position: absolute;
+    color: $light;
+    font-weight: 300;
+    font-size: 0.8em;
+    right: 0;
+    bottom: 10px;
+    background-color: rgba(0,0,0,0.2);
+    padding: 10px;
+    font-family: 'Roboto Mono', monospace;
+    border-radius: 5px;
+  }
+
+  .api-update-message {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 300;
+  }
+
+  .intro {
+    width: 100%;
+    height: 100%;
+  
+    #intro-canvas {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100vh;
+      width: 100%;
+      height: 100%;
+    }
+    
+    .progress-bar {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      text-align: center;
+      opacity: 0.85;
+      height: 10px;
+    
+      .progress-wrap {
+        width: 200px;
+        margin: 0 auto;
+        height: 10px;
+      
+        .progress {
+          border-radius: 10px;
+          height: 10px;
+          
+          .bar {
+          border-radius: 10px;
+          height: 10px;
+    
+            .progress {
+              border-radius: 10px;
+              height: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .content {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: url(/images/bg.svg);
+    background-color: $secondary;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 1s; /* Firefox < 16 */
+        -ms-animation: fadein 1s; /* Internet Explorer */
+         -o-animation: fadein 1s; /* Opera < 12.1 */
+            animation: fadein 1s;
+  
+    .stars {
+      display: block;
+      width: 100%;
+    }
+  
+    .stars-middle {
+      display: block;
+      width: 80%;
+      left: -80%;
+      top: 0;
+      position: absolute;
+      transform: scaleX(-1);
+    }
+  
+    .prop-1 {
+      width: 100px;
+      margin-left: 30%;
+      margin-top: 20px;
+    }
+  
+    .prop-2 {
+      width: 60px;
+      margin-left: 30%;
+      margin-top: 70px;
+      transform: rotate(20deg);
+    }
+  
+    .prop-3 {
+      width: 70px;
+      margin-left: 50%;
+      margin-top: 45px;
+      transform: rotate(20deg);
+    }
+  
+    .prop-4 {
+      width: 200px;
+      margin-left: 70%;
+      margin-top: 50px;
+    }
+  
+    .content-block {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}

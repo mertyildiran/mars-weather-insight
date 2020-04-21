@@ -1,0 +1,71 @@
+@import "../../styles/_variables.scss";
+
+.overview {
+  text-align: center;
+  color: $light;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  border-radius: 10px;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 100;
+  font-size: 14px;
+  margin-top: -20px;
+
+  div.checkbox-label {
+    display: inline-block;
+    margin: 0 7px;
+    min-height: 1.25rem;
+    vertical-align: super;
+  }
+  
+  .ui.slider.checkbox input:checked~.box:after,
+  .ui.slider.checkbox input:checked~label:after {
+    left: 2.6rem;
+  }
+
+  .ui.slider.checkbox .box:after,
+  .ui.slider.checkbox label:after {
+    width: 1rem;
+    height: 1rem;
+    top: 0;
+  }
+
+  .ui.slider.checkbox input:checked~.box:before,
+  .ui.slider.checkbox input:checked~label:before,
+  .ui.slider.checkbox input:focus:checked~.box:before,
+  .ui.slider.checkbox input:focus:checked~label:before,
+  .ui.slider.checkbox .box:before,
+  .ui.slider.checkbox label:before {
+    background-color: #76559c !important;
+  }
+
+  .ui.table {
+    //border: 1px solid rgba(255, 255, 255, 0.1);
+
+    thead th {
+      font-weight: 400;
+      text-align: center;
+      //background: rgba(0, 0, 0, 0.1);
+    }
+  
+    tr td {
+      text-align: center;
+    }
+  }
+
+  .sol-item {
+
+    h1, h3 {
+      margin: 0
+    }
+
+    .icon {
+      
+      svg {
+        max-width: 18px;
+        fill: $light;
+        display: inline-block;
+      }
+    }
+  }
+}
