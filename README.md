@@ -2,7 +2,7 @@
 
 Mars weather insight app.
 
-![screenshot](https://i.imgur.com/DaQN7mG.png)
+![screenshot](https://i.imgur.com/4Rx5eIs.png)
 
 ## Demo
 
