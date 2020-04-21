@@ -26,7 +26,7 @@ function App() {
       </div>
 
       {showContent &&
-        <div className="content">
+        <div className="content" style={{backgroundImage: `url(${imageSrc("bg")})`}}>
           <div className="scroll-prompt" onClick={() => parallax.current.scrollTo(1)}>
             <Icon name="long arrow alternate left" />
             &nbsp;Scroll horizontally to navigate&nbsp;
