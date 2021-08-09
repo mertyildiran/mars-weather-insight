@@ -12,7 +12,7 @@ function useApp(ref) {
   const imageSrc = (file) => file === "tesla" ?  `./images/${file}.png` : `./images/${file}.svg`        
 
   useEffect(() => {
-    const apiUrl = `https://api.nasa.gov/insight_weather/?api_key=${process.env.REACT_APP_API_URL}&feedtype=json&ver=1.0`
+    const apiUrl = `http://localhost:8081/rss/api?feed=weather&category=insight_temperature&feedtype=json&ver=1.0`
     const fetchData = async () => {
       try {
         const result = await axios(apiUrl)

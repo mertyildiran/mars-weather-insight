@@ -1,0 +1,81 @@
+{
+  {% for day in range(675, 682) %}
+    "{{ day }}": {
+      "AT": {
+        "av": {{ random.float('-1000', '1000', 3) }},
+        "ct": {{ random.int(10000, 999999) }},
+        "mn": {{ random.float('-1000', '1000', 3) }},
+        "mx": {{ random.float('-1000', '1000', 3) }}
+      },
+      "First_UTC": "{{ fake.date('%Y-%m-%d') + 'T' + fake.time('%H:%M:%S') + 'Z' }}",
+      "HWS": {
+        "av": {{ random.float('-1000', '1000', 3) }},
+        "ct": {{ random.int(10000, 999999) }},
+        "mn": {{ random.float('-1000', '1000', 3) }},
+        "mx": {{ random.float('-1000', '1000', 3) }}
+      },
+      "Last_UTC": "{{ fake.date('%Y-%m-%d') + 'T' + fake.time('%H:%M:%S') + 'Z' }}",
+      "Month_ordinal": {{ random.int(1, 12) }},
+      "Northern_season": "{{ fake.random_element(elements=['early ', 'late ', '']) + fake.random_element(elements=['winter ', 'summer ']) }}",
+      "PRE": {
+        "av": {{ random.float('-1000', '1000', 3) }},
+        "ct": {{ random.int(10000, 999999) }},
+        "mn": {{ random.float('-1000', '1000', 3) }},
+        "mx": {{ random.float('-1000', '1000', 3) }}
+      },
+      "Season": "{{ fake.random_element(elements=['early ', 'late ', '']) + fake.random_element(elements=['winter ', 'summer ']) }}",
+      "Southern_season": "{{ fake.random_element(elements=['early ', 'late ', '']) + fake.random_element(elements=['winter ', 'summer ']) }}",
+      "WD": {
+        "0": {
+          "compass_degrees": 0,
+          "compass_point": "N",
+          "compass_right": 0,
+          "compass_up": 1,
+          "ct": {{ random.int(1, 10000) }}
+        },{% for _ in range(range(20) | random) %}
+        "{{ random.int(1, 20) }}": {
+          "compass_degrees": {{ random.float('0', '360', 3) }},
+          "compass_point": "{{ fake.random_element(elements=['N', 'NE', 'NW', 'NNE', 'NNW', 'E', 'ENE', 'ESE', 'S', 'SE', 'SW', 'SSE', 'SSW', 'W', 'WNW', 'WSW']) }}",
+          "compass_right": {{ random.float('-1', '1', 12) }},
+          "compass_up": {{ random.float('-1', '1', 12) }},
+          "ct": {{ random.int(1, 10000) }}
+        },
+        {% endfor %}"most_common": {
+          "compass_degrees": {{ random.float('0', '360', 3) }},
+          "compass_point": "{{ fake.random_element(elements=['N', 'NE', 'NW', 'NNE', 'NNW', 'E', 'ENE', 'ESE', 'S', 'SE', 'SW', 'SSE', 'SSW', 'W', 'WNW', 'WSW']) }}",
+          "compass_right": {{ random.float('-1', '1', 12) }},
+          "compass_up": {{ random.float('-1', '1', 12) }},
+          "ct": {{ random.int(1, 10000) }}
+        }
+      }
+    },
+  {% endfor %}
+  "sol_keys": [
+    {% for day in range(675, 682) %}
+      "{{ day }}"
+    {% if not loop.last %},{% endif %}
+    {% endfor %}
+  ],
+  "validity_checks": {
+    {% for day in range(674, 683) %}
+      "{{ day }}": {
+        {% for attr in ['AT', 'HWS', 'PRE', 'WD'] %}
+          "{{ attr }}": {
+            "sol_hours_with_data": [
+            {% for hour in range(0, 24) %}
+              "{{ hour }}"{% if not loop.last %},{% endif %}
+            {% endfor %}],
+            "valid": true
+          }{% if not loop.last %},{% endif %}
+        {% endfor %}
+      }
+      {% if not loop.last %},{% endif %}
+    {% endfor %},
+    "sol_hours_required": {{ random.int(1, 24) }},
+    "sols_checked": [
+      {% for day in range(674, 683) %}
+        "{{ day }}"
+        {% if not loop.last %},{% endif %}
+      {% endfor %}]
+  }
+}

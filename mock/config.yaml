@@ -1,0 +1,19 @@
+templatingEngine: "Jinja2"
+management:
+  port: 8000
+  ssl: true
+services:
+  - port: 8081
+    name: "InSight: Mars Weather Service API"
+    endpoints:
+      - path: "/rss/api"
+        queryString:
+          feed: weather
+          category: insight_temperature
+          feedtype: json
+          ver: '1.0'
+        response:
+          status: 200
+          headers:
+            Content-Type: application/json; charset=UTF-8
+          body: "@template.json.j2"
